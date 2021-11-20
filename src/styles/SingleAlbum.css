@@ -1,0 +1,34 @@
+.singleAlbum {
+  position: relative;
+  color: transparent;
+}
+
+.singleAlbum:hover {
+  color: #55ba55;
+}
+
+.albumLink {
+  font-weight: 500;
+}
+
+.albumLink:hover {
+  color: inherit;
+}
+
+.playButton {
+  position: absolute;
+  z-index: 1;
+  bottom: 45px;
+  right: 16px;
+  color: inherit;
+}
+
+.playButton:hover {
+  color: #00ff00;
+}
+
+.albumImg {
+  width: 100%;
+  height: 100%;
+  box-shadow: 5px 5px 50px 10px rgba(0, 0, 0, 0.4);
+}

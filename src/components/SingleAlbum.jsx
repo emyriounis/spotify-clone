@@ -1,15 +1,16 @@
+import "../styles/SingleAlbum.css";
 import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { PlayCircleFill } from "react-bootstrap-icons";
 
-const SingleAlbum = ({ cover, title }) => {
+const SingleAlbum = ({ id, cover, title }) => {
   return (
-    <div className="text-light text-center" style={{ width: "200px" }}>
-      <Image
-        src={cover}
-        width="200px"
-        height="200px"
-        style={{ boxShadow: "5px 5px 50px 10px rgba(0,0,0,0.4)" }}
-      />
-      <div className="p-1">{title}</div>
+    <div className="singleAlbum text-center w-100">
+      <Link className="link albumLink" to={`/album/${id}`}>
+        <PlayCircleFill className="playButton" size={25} />
+        <Image className="albumImg" src={cover} />
+        <div className="text-light p-1">{title}</div>
+      </Link>
     </div>
   );
 };

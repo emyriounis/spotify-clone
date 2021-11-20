@@ -3,9 +3,10 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Error from "./components/Error";
-import Player from "./components/Player";
 import TopNav from "./components/TopNav";
+import Player from "./components/Player";
 import Home from "./components/Home";
+import Album from "./components/Album";
 
 const App = () => {
   const [show, setShow] = useState(false);
@@ -16,10 +17,15 @@ const App = () => {
     <>
       <BrowserRouter>
         <Sidebar show={show} handleClose={handleClose} />
+        <TopNav handleShow={handleShow} />
         <Player />
         <Routes>
           <Route path="/" element={<Home handleShow={handleShow} />} />
-          {/* <Route path="*" element={<Error error="Page not found" />} /> */}
+          <Route
+            path="/album/:id"
+            element={<Album handleShow={handleShow} />}
+          />
+          <Route path="*" element={<Error error="Page not found" />} />
         </Routes>
       </BrowserRouter>
     </>
