@@ -9,7 +9,7 @@ const SingleAlbum = ({ id, cover, title }) => {
       <Link className="link albumLink" to={`/album/${id}`}>
         <PlayCircleFill className="playButton" size={25} />
         <Image className="albumImg" src={cover} />
-        <div className="text-light p-1">{title}</div>
+        <div className="albumText text-light p-1">{title}</div>
       </Link>
     </div>
   );

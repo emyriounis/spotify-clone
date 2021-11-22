@@ -1,5 +1,4 @@
 import "../styles/Home.css";
-import TopNav from "./TopNav";
 import AlbumList from "./AlbumList";
 
 const Home = ({ handleShow }) => {
