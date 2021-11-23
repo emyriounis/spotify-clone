@@ -36,18 +36,10 @@ const AlbumList = ({ category }) => {
     <>
       <h4 className="categoryTitle text-light my-3">{category}</h4>
       <Container fluid className="p-0 mb-5">
-        <Row
-          className="d-flex justify-content-center g-2"
-          xs={1}
-          sm={2}
-          md={3}
-          lg={4}
-          xl={6}
-        >
+        <Row className="d-flex g-2" xs={1} sm={2} md={3} lg={4} xl={6}>
           {songs.slice(0, 12).map((song) => (
-            <Col className="p-2">
+            <Col key={song.id} className="p-2">
               <SingleAlbum
-                key={song.id}
                 id={song.album.id}
                 cover={song.album.cover_medium}
                 title={song.title_short}

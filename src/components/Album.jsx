@@ -5,6 +5,8 @@ import { useParams } from "react-router";
 import { Heart, MusicNote, ThreeDots } from "react-bootstrap-icons";
 import Loading from "./Loading";
 import Error from "./Error";
+import { run as runHolder } from "holderjs/holder";
+import { Link } from "react-router-dom";
 
 const Album = () => {
   const params = useParams();
@@ -41,16 +43,26 @@ const Album = () => {
     getAlbum(params.id);
   }, [params.id]);
 
+  useEffect(() => {
+    runHolder("image-class-name");
+  }, []);
+
   if (loading) <Loading />;
   if (error) <Error error={error} />;
   return (
     <Container fluid className="px-5 py-4 mx-0 mb-5">
       <Row className="m-0">
         <Col className="text-light text-center my-4" xs={12} lg={4}>
-          <Image className="albumImage" src={album.cover_medium} />
+          {album.cover_medium ? (
+            <Image className="albumImage" src={album.cover_medium} />
+          ) : (
+            <Image className="albumImage" src="holder.js/250x250" />
+          )}
           <h2 className="mb-1">{album.title}</h2>
           {album.artist && (
-            <h6 className="text-grey-smaller mb-4">{album.artist.name}</h6>
+            <Link className="link" to={`/artist/${album.artist.id}`}>
+              <h6 className="text-grey-smaller mb-4">{album.artist.name}</h6>
+            </Link>
           )}
           <Button
             className="albumPlayButton px-5 py-2"

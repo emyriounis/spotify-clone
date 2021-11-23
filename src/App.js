@@ -7,6 +7,7 @@ import TopNav from "./components/TopNav";
 import Player from "./components/Player";
 import Home from "./components/Home";
 import Album from "./components/Album";
+import Artist from "./components/Artist";
 
 const App = () => {
   const [show, setShow] = useState(false);
@@ -24,6 +25,10 @@ const App = () => {
           <Route
             path="/album/:id"
             element={<Album handleShow={handleShow} />}
+          />
+          <Route
+            path="/artist/:id"
+            element={<Artist handleShow={handleShow} />}
           />
           <Route path="*" element={<Error error="Page not found" />} />
         </Routes>

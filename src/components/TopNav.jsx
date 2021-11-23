@@ -24,6 +24,7 @@ const TopNav = ({ handleShow }) => {
               p-2
               mx-1 mx-sm-2
             "
+        onClick={() => window.history.back()}
       >
         <ChevronLeft />
       </Button>
@@ -39,6 +40,7 @@ const TopNav = ({ handleShow }) => {
               p-2
               mx-1 mx-sm-2
             "
+        onClick={() => window.history.go(1)}
       >
         <ChevronRight />
       </Button>
